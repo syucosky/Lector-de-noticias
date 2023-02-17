@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
+
 @Controller
 @RequestMapping("/NuevaNoticia")
 public class CrearNoticiaControlador {
@@ -16,9 +17,18 @@ public class CrearNoticiaControlador {
     @Autowired
     NoticiaServicio noticiaServicio;
     
-    @GetMapping("/crear")
-    public String crearNoticia(String titulo, String cuerpo){
-        
+    @GetMapping("")
+    public String crearNoticia(){        
         return "crear_noticia.html";
+    }
+    
+    @PostMapping("/guardar")
+    public String guardarNoticia(@RequestParam String titulo,@RequestParam String cuerpo) throws Exception{       
+        try {
+            noticiaServicio.crearNoticia(titulo, cuerpo);
+            return "index.html";
+        } catch (Exception e) {
+            return "crear_noticia.html";
+        }        
     }
 }

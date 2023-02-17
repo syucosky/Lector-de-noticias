@@ -19,7 +19,7 @@ public class CrearNoticiaControlador {
     
     @GetMapping("")
     public String crearNoticia(){        
-        return "crear_noticia.html";
+        return "NuevaNoticia.html";
     }
     
     @PostMapping("/guardar")
@@ -28,7 +28,7 @@ public class CrearNoticiaControlador {
             noticiaServicio.crearNoticia(titulo, cuerpo);
             return "index.html";
         } catch (Exception e) {
-            return "crear_noticia.html";
+            return "NuevaNoticia.html";
         }        
     }
 }

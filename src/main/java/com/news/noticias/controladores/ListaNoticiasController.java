@@ -12,11 +12,20 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
 @Controller
-@RequestMapping("/listarNoticias")
+@RequestMapping("/listaNoticias")
 public class ListaNoticiasController {
     
     @Autowired
     NoticiaServicio noticiaServicio;
     
+    @GetMapping("")
+    public String listaNoticias(ModelMap modelo){
+        
+        List<Noticia> noticias = noticiaServicio.listarNoticias();
+        
+        modelo.addAttribute("noticias", noticias);
+        
+        return "listaNoticias.html";
+    }
     
 }

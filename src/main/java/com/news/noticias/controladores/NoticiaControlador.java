@@ -23,13 +23,4 @@ public class NoticiaControlador {
         
         return "index.html";
     }
-    @GetMapping("")
-    public String listaNoticias(ModelMap modelo){
-        
-        List<Noticia> noticias = noticiaServicio.listarNoticias();
-        
-        modelo.addAttribute("noticias", noticias);
-        
-        return "lista_noticias.html";
-    }
 }

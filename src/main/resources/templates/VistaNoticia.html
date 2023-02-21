@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+    <head>
+        <title>Vista Noticia</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    </head>
+    <body>
+        <div style="display:flex; justify-content: space-around;">
+            <a th:href="@{../}" style="margin-left: 5px; padding: 7px 14px; border-radius: 10%; background-color: #007bff; color:white; text-decoration: none;">Inicio</a>
+            <a th:href="@{../Modificar/__${noticia.titulo}__}" style="margin-left: 5px; padding: 7px 14px; border-radius: 10%; background-color: #007bff; color:white; text-decoration: none;">Modificar</a>
+        </div>
+
+        <div style="text-align: center">
+            <h2 th:text="${noticia.titulo}"></h2>
+            <p th:text="${noticia.cuerpoNoticia}"></p>
+
+        </div>
+
+    </body>
+</html>

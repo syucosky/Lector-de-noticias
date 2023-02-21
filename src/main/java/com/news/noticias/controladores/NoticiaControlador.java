@@ -18,9 +18,15 @@ public class NoticiaControlador {
     @Autowired
     private NoticiaServicio noticiaServicio;
     
+
     @GetMapping("")
-    public String index(){
+    public String listaNoticias(ModelMap modelo){
+        
+        List<Noticia> noticias = noticiaServicio.listarNoticias();
+        
+        modelo.addAttribute("noticias", noticias);
         
         return "index.html";
     }
+    
 }

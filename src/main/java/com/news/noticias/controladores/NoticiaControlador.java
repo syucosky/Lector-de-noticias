@@ -4,6 +4,7 @@ import com.news.noticias.entidades.Noticia;
 import com.news.noticias.servicios.NoticiaServicio;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.Lazy;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -15,6 +16,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 @RequestMapping("/")
 public class NoticiaControlador {
     
+
     @Autowired
     private NoticiaServicio noticiaServicio;
     

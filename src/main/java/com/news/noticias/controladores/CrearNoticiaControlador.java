@@ -26,7 +26,7 @@ public class CrearNoticiaControlador {
     public String guardarNoticia(@RequestParam String titulo,@RequestParam String cuerpo) throws Exception{       
         try {
             noticiaServicio.crearNoticia(titulo, cuerpo);
-            return "index.html";
+            return "redirect:/";
         } catch (Exception e) {
             return "NuevaNoticia.html";
         }        

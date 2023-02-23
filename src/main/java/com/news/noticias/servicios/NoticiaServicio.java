@@ -51,4 +51,18 @@ public class NoticiaServicio {
             return noticia;
         }
     }
+    
+    @Transactional
+    public void modificarNoticia(String titulo, String nuevoTitulo, String nuevoCuerpo) throws Exception{
+        
+        Noticia noticia = buscarNoticia(titulo);
+        if(noticia != null){                
+            noticia.setTitulo(nuevoTitulo);
+            noticia.setCuerpoNoticia(nuevoCuerpo);
+            
+            noticiaRepositorio.save(noticia);
+        }else{
+            throw new Exception("noticia no existe");
+        }     
+    }
 }

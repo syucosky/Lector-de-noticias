@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+    <head>
+        <title></title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
+
+    </head>
+    <body>
+        <h2 style="margin-left: 30px" >Modificar Noticia</h2>
+        <form style="margin-left: 30px" method="POST" th:action="@{/Modificar/__${noticia.titulo}__}">
+            <div  class="mb-3" style="display: flex; flex-direction: column;">
+                <label  style="padding: 20px; padding-left: 0px" for="exampleFormControlInput1" class="form-label">Titulo</label>
+                <input name="nuevoTitulo" th:placeholder="${noticia.titulo}" style="width:300px; height: 50px;" type="text" class="form-control" id="exampleFormControlInput1" >
+            </div>
+            <div   class="mb-3" style="display: flex; flex-direction: column                ;">
+        <label style="padding: 20px; padding-left: 0px"  for="exampleFormControlTextarea1" class="form-label">Cuerpo de la Noticia</label>
+        <textarea name="nuevoCuerpo" th:placeholder="${noticia.cuerpoNoticia}" type="text" style="resize:none; width:500px; height: 200px" class="form-control"></textarea>
+            </div>
+            <div style="display:flex; align-items: center; margin-top: 10px">
+                <button type="submit" class="btn btn-primary" >Guardar</button>
+                <a th:href="@{../}" style="margin-left: 5px; padding: 7px 14px; border-radius: 10%; background-color: #007bff; color:white; text-decoration: none;">Inicio</a>
+            </div>
+        </form>
+ 
+         
+           <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ho+j7jyWK8fNQe+A12Hb8AhRq26LrZ/JpcUGGOn+Y7RsweNrtN/tE3MoK7ZeZDyx" crossorigin="anonymous"></script>
+  
+    </body>
+</html>

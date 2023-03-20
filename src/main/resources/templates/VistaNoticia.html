@@ -1,10 +1,5 @@
 <!DOCTYPE html>
-<!--
-To change this license header, choose License Headers in Project Properties.
-To change this template file, choose Tools | Templates
-and open the template in the editor.
--->
-<html>
+<html xmlns:th="https://www.thymeleaf.org"> 
     <head>
         <title>Vista Noticia</title>
         <meta charset="UTF-8">
@@ -12,8 +7,7 @@ and open the template in the editor.
     </head>
     <body>
         <div style="display:flex; justify-content: space-around;">
-            <a th:href="@{../}" style="margin-left: 5px; padding: 7px 14px; border-radius: 10%; background-color: #007bff; color:white; text-decoration: none;">Inicio</a>
-            <a th:href="@{../Modificar/__${noticia.titulo}__}" style="margin-left: 5px; padding: 7px 14px; border-radius: 10%; background-color: #007bff; color:white; text-decoration: none;">Modificar</a>
+            <a th:href="@{../inicio}" style="margin-left: 5px; padding: 7px 14px; border-radius: 10%; background-color: #007bff; color:white; text-decoration: none;">Inicio</a>
         </div>
 
         <div style="text-align: center">
@@ -21,6 +15,5 @@ and open the template in the editor.
             <p th:text="${noticia.cuerpoNoticia}"></p>
 
         </div>
-
     </body>
 </html>

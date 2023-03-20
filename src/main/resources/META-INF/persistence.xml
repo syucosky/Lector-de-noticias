@@ -6,6 +6,8 @@
     <class>com.news.noticias.controladores.NoticiaControlador</class>
     <class>com.news.noticias.servicios.NoticiaServicio</class>
     <class>com.news.noticias.controladores.CrearNoticiaControlador</class>
+    <class>com.news.noticias.entidades.Usuario</class>
+    <class>com.news.noticias.entidades.Imagen</class>
     <properties>
       <property name="javax.persistence.jdbc.url" value="jdbc:mysql://localhost:3306/noticias?zeroDateTimeBehavior=convertToNull"/>
       <property name="javax.persistence.jdbc.user" value="root"/>

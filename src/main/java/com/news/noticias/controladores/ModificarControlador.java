@@ -1,8 +1,10 @@
 package com.news.noticias.controladores;
 
 import com.news.noticias.entidades.Noticia;
+import com.news.noticias.excepciones.MiExcepcion;
 import com.news.noticias.servicios.NoticiaServicio;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -12,6 +14,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
 @Controller
+@PreAuthorize("hasAnyRole('ROLE_ADMIN')")
 @RequestMapping("/Modificar")
 public class ModificarControlador {
 
@@ -32,7 +35,8 @@ public class ModificarControlador {
     @PostMapping("/{titulo}")
     public String modificarPost(@PathVariable("titulo") String titulo,
             @RequestParam String nuevoTitulo,
-            @RequestParam String nuevoCuerpo) {
+            @RequestParam String nuevoCuerpo,
+            ModelMap model) throws Exception {
         try {
             if (nuevoTitulo.isEmpty() & nuevoCuerpo.isEmpty()) {
                 String viejoTitulo = noticiaServicio.buscarNoticia(titulo).getTitulo();
@@ -49,9 +53,11 @@ public class ModificarControlador {
             }else{
                 noticiaServicio.modificarNoticia(titulo, nuevoTitulo, nuevoCuerpo);
             }
-        } catch (Exception e) {
+            model.put("exito", "La Noticia fue modificada");
+        } catch (MiExcepcion ex) {
+            model.put("error", ex.getMessage());
         }
-        return "redirect:/";
+        return "redirect:/inicio";
     }
 
 }
